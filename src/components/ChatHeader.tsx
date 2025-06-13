@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Menu, User, LogOut } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -22,23 +21,22 @@ import logo from '@/assets/logo2.png';
 interface ChatHeaderProps {
   sidebarOpen: boolean;
   onToggleSidebar: () => void;
-  user: { nom: string; prenom?: string; username: string; role: string } | null;
 }
 
-export default function ChatHeader({ sidebarOpen, onToggleSidebar, user }: ChatHeaderProps) {
+export default function ChatHeader({ sidebarOpen, onToggleSidebar }: ChatHeaderProps) {
   const [logoutDialogOpen, setLogoutDialogOpen] = useState(false);
   const navigate = useNavigate();
 
-  const initials = user
-    ? user.nom
-        .split(" ")
-        .map((n) => n[0])
-        .join("")
-        .toUpperCase()
-    : "??";
+  // Données utilisateur simulées
+  const user = {
+    nom: "Dupont",
+    prenom: "Jean",
+    username: "jdupont",
+    role: "Utilisateur"
+  };
 
-  const prenom = user?.prenom || user?.nom?.split(" ")[0] || "Utilisateur";
-  const nom = user?.nom || "";
+  const initials = user.nom[0] + (user.prenom ? user.prenom[0] : '');
+  const nomComplet = user.nom;
 
   const handleProfile = () => {
     navigate('/profil');
@@ -73,9 +71,8 @@ export default function ChatHeader({ sidebarOpen, onToggleSidebar, user }: ChatH
           <div className="flex items-center gap-3">
             <div className="hidden sm:block text-right">
               <p className="text-sm font-medium text-slate-700">Bienvenue, </p>
-              <p className="text-xs text-slate-500">{nom}</p>
+              <p className="text-xs text-slate-500">{nomComplet}</p>
             </div>
-
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost" size="icon" className="relative h-10 w-10 rounded-full hover:bg-blue-50">

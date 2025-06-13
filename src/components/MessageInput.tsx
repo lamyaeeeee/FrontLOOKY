@@ -12,7 +12,6 @@ interface MessageInputProps {
 
 export default function MessageInput({ onSend, value, setValue, disabled = false }: MessageInputProps) {
   const [localValue, setLocalValue] = useState('');
-
   const currentValue = value !== undefined ? value : localValue;
   const setCurrentValue = setValue || setLocalValue;
 
@@ -33,8 +32,7 @@ export default function MessageInput({ onSend, value, setValue, disabled = false
 
   return (
     <div className="relative">
-     <div className="flex items-end gap-2 p-4 rounded-2xl border border-[#a98dd4] focus-within:border-[#a98dd4] bg-white/90 backdrop-blur-sm shadow-none transition-all duration-200">
-
+      <div className="flex items-end gap-2 p-4 rounded-2xl border border-[#a98dd4] focus-within:border-[#a98dd4] bg-white/90 backdrop-blur-sm shadow-none transition-all duration-200">
         <Button
           variant="ghost"
           size="icon"
@@ -43,16 +41,14 @@ export default function MessageInput({ onSend, value, setValue, disabled = false
         >
           <Paperclip className="h-4 w-4" />
         </Button>
-
         <Textarea
           value={currentValue}
           onChange={(e) => setCurrentValue(e.target.value)}
           onKeyDown={handleKeyDown}
           placeholder="Écrivez votre message ici..."
-         className="flex-1 min-h-[40px] max-h-32 resize-none border-none bg-transparent p-0 text-sm placeholder:text-slate-400 focus:ring-0 focus:outline-none"
+          className="flex-1 min-h-[40px] max-h-32 resize-none border-none bg-transparent p-0 text-sm placeholder:text-slate-400 focus:ring-0 focus:outline-none"
           disabled={disabled}
         />
-
         <Button
           onClick={handleSend}
           disabled={!currentValue.trim() || disabled}

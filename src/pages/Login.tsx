@@ -87,7 +87,7 @@ export default function Login() {
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
                   className="pl-12 h-14 bg-tessi-50/50 border-tessi-200 focus:border-tessi-500 focus:ring-tessi-500 rounded-xl text-tessi-800 placeholder:text-tessi-400"
-                  placeholder="Votre identifiant"
+                  placeholder="Entrez votre identifiant"
                   required
                 />
               </div>
@@ -105,7 +105,7 @@ export default function Login() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   className="pl-12 pr-12 h-14 bg-tessi-50/50 border-tessi-200 focus:border-tessi-500 focus:ring-tessi-500 rounded-xl text-tessi-800 placeholder:text-tessi-400"
-                  placeholder="Votre mot de passe"
+                  placeholder="Entrez votre mot de passe"
                   required
                 />
                 <Button

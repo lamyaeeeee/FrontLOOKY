@@ -3,7 +3,7 @@ import { FileText, TrendingUp, MessageSquare, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import MessageInput from './MessageInput';
-import logo from '@/assets/logo2.png'; 
+
 interface WelcomeScreenProps {
   onPromptClick: (prompt: string) => void;
   value?: string;
@@ -47,23 +47,22 @@ export default function WelcomeScreen({ onPromptClick, value, setValue, onSend }
     <div className="flex flex-col h-full bg-gradient-to-br from-slate-50 to-blue-50">
       {/* Welcome Content */}
       <div className="flex-1 flex flex-col items-center justify-center p-8">
-      <div className="text-center mb-12 animate-fade-in">
-  <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center shadow-lg">
-    <MessageSquare className="h-8 w-8 text-white" />
-  </div>
-  <h1 className="text-4xl font-bold text-slate-800 mb-4">
-    Comment puis-je vous assister aujourd’hui ?
-  </h1>
-  <p className="text-lg text-slate-600 max-w-md mx-auto whitespace-nowrap">
-  Je suis là pour vous guider dans vos démarches ITSM.
-</p>
-</div>
-
+        <div className="text-center mb-12 animate-fade-in">
+          <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center shadow-lg">
+            <MessageSquare className="h-8 w-8 text-white" />
+          </div>
+          <h1 className="text-4xl font-bold text-slate-800 mb-4">
+            Comment puis-je vous assister aujourd'hui ?
+          </h1>
+          <p className="text-lg text-slate-600 max-w-md mx-auto whitespace-nowrap">
+            Je suis là pour vous guider dans vos démarches ITSM.
+          </p>
+        </div>
 
         {/* Quick Actions */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-2xl mb-12">
           {quickActions.map((action, index) => (
-            <Card 
+            <Card
               key={index}
               className="group cursor-pointer hover:shadow-xl transition-all duration-200 hover:scale-[1.02] animate-bounce-in border-0 bg-white/80 backdrop-blur-sm"
               style={{ animationDelay: `${index * 100}ms` }}
@@ -91,8 +90,6 @@ export default function WelcomeScreen({ onPromptClick, value, setValue, onSend }
           <MessageInput onSend={onSend} value={value} setValue={setValue} />
         </div>
       </div>
-
-      
     </div>
   );
 }

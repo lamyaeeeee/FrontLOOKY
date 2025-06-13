@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { Bot, User } from 'lucide-react';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import MessageInput from './MessageInput';
-import logo from '@/assets/logo2.png'; 
+
 interface Message {
   sender: 'user' | 'bot';
   text: string;
@@ -40,8 +40,8 @@ export default function ChatContent({ messages, value, setValue, onSend }: ChatC
                 <div key={index} className={`flex gap-4 animate-fade-in ${isUser ? 'flex-row-reverse' : ''}`}>
                   {/* Avatar */}
                   <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center shadow-md ${
-                    isUser 
-                      ? 'bg-gradient-to-br from-purple-500 to-purple-700' 
+                    isUser
+                      ? 'bg-gradient-to-br from-purple-500 to-purple-700'
                       : 'bg-gradient-to-br from-blue-500 to-blue-700'
                   }`}>
                     {isUser ? (
@@ -71,14 +71,10 @@ export default function ChatContent({ messages, value, setValue, onSend }: ChatC
       </ScrollArea>
 
       <div className="border-t-0 bg-white/50 backdrop-blur-sm p-4">
-
-
         <div className="max-w-4xl mx-auto">
           <MessageInput onSend={onSend} value={value} setValue={setValue} />
         </div>
       </div>
-
-    
     </div>
   );
 }
